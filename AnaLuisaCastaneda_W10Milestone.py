@@ -52,19 +52,25 @@ while menu != '6' :
 
             print()
             remove = int(input('What is the number of the item you want to remove? '))
-            
+
             r = remove - 1
+            
+            print(f'We removed {items[r]} from your cart')
+
             items.pop(r)
             prices.pop(r)
 
-            print(f'We removed {items[remove]} from your cart')
-        
-            print('\nThis is the new content of your shopping cart.')
 
-            for i in range(len(items)) :
-                n = i + 1
-                price = prices[i]
-                print(f'{n}. {items[i]} - ${price:.2f}')  
+            if (len(items) == 0) and (len(prices) == 0) :
+                print('\nYour cart is empty.')
+            else : 
+                print('\nThis is the content of your shopping cart.')
+        
+        
+                for i in range(len(items)) :
+                    n = i + 1
+                    price = prices[i]
+                    print(f'{n}. {items[i]} - ${price:.2f}')  
 
         print('\n-----------------------------------------------')
 
